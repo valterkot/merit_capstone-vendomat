@@ -3,52 +3,26 @@ package com.techelevator;
 public class Product {
     private String name;
     private double price;
-    private String type;   
-    private int inStock = 5;
+    private String type;
 
     public Product(String type, String name, double price){
         this.name = name; 
         this.price = price;
         this.type = type;
-        if (type.equals("Chip")) { 
-            inStock = 0 ;
-        }
     }
 
-    public boolean buy(){
-        if (inStock > 0) {
-            inStock--;
-            printMsg();
-            return true;
-        }
-        else 
-        {
-            System.out.println("This Item is out of stock! Please choose another Product!"); 
-            return false;
-        }
-    }
+    public void printMsg(){
+        System.out.println("\n>>>Enjoy your "+name +"!\n");
 
-    private void printMsg(){
         if (this.type.equals("Chip")) {
-            System.out.println("Crunch Crunch, Yum!");
+            System.out.println(">>>Crunch Crunch, Yum!");
         } else if (this.type.equals("Candy")) {
-            System.out.println("Munch Munch, Yum!");
+            System.out.println(">>>Munch Munch, Yum!");
         } else if (this.type.equals("Drink")) {
-            System.out.println("Glug Glug, Yum!");
+            System.out.println(">>>Glug Glug, Yum!");
         } else if (this.type.equals("Gum")) {
-            System.out.println("Chew Chew, Yum!");
+            System.out.println(">>>Chew Chew, Yum!");
         }  
-    }
-
-    @Override
-    public String toString(){
-        if (inStock == 0) {
-            return String.format("%-" + 5 + "s\t%-" + 25 + "s\t%s",  
-            type, name, "!!!OUT OF STOCK!!!");
-        } else {
-            return String.format("%-" + 5 + "s\t%-" + 20 + "s\t%-" + 5 + ".2f\t%s",
-            type, name, price, "In Stock! (QTY: " + inStock + ")");
-        }
     }
 
     public String getName() {
@@ -73,16 +47,6 @@ public class Product {
 
     public void setType(String type) {
         this.type = type;
-    }
-
-    public int getInStock() {
-        return inStock;
-    }
-
-    public void setInStock(int inStock) {
-        this.inStock = inStock;
-    }
-
-    
+    }    
 
 }
